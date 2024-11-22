@@ -12,9 +12,13 @@
 
     <!-- Hero Section: Introduction -->
     <section class="hero intro-hero">
-        <div class="hero-content">
+        <div class="hero-left">
+            <!-- Image on the left side -->
+            <img src="mj.jpg" alt="Michael Jordan Golf" class="hero-image">
+        </div>
+        <div class="hero-right">
             <h2>Welcome to Golf Course Finder</h2>
-            <p>Discover the best golf courses near you, tailored to your skill level and preferences. Start your golfing adventure with ease!</p>
+            <p>Welcome to Golf Course Finder! Whether you're a seasoned golfer or just starting, we've got you covered. Discover the best courses near you, plan your next game, and connect with fellow golf enthusiasts. Let us help you find your perfect tee time and elevate your golfing experience!</p>
             <a href="courses.php" class="cta-button">Find Courses</a>
         </div>
     </section>

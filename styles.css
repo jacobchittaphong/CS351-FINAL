@@ -68,17 +68,43 @@ header {
 }
 
 .intro-hero {
+    display: flex;
+    align-items: center;
     background-color: #B8A37C; /* Muted gold */
     color: #375849; /* Dark hunter green text */
     padding: 80px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.highlights-hero {
-    background-color: #F8F1E5; /* Warm cream */
-    color: #375849; /* Dark hunter green text */
+.hero-left {
+    flex: 1;
+    padding-right: 20px;
 }
 
-/* Buttons */
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hero-right {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #375849; /* Dark hunter green */
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #375849;
+    margin-bottom: 1.5rem;
+}
+
 .cta-button {
     display: inline-block;
     margin-top: 20px;
@@ -96,6 +122,23 @@ header {
     color: #375849;
 }
 
+/* Highlights Section */
+.highlights-hero {
+    background-color: #F8F1E5; /* Warm cream */
+    color: #375849; /* Dark hunter green text */
+    padding: 2rem;
+}
+
+.hero.highlights-hero h3 {
+    font-size: 2rem;
+    color: #375849; /* Dark hunter green */
+}
+
+.hero.highlights-hero p {
+    font-size: 1.2rem;
+    color: #375849;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -104,4 +147,3 @@ footer {
     color: #F8F1E5; /* Warm cream */
     font-size: 0.9rem;
 }
-
