@@ -1,5 +1,107 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Body Styling */
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    background-color: #D9E4DD; /* Soft sage green */
+    color: #375849; /* Dark hunter green */
+}
+
+/* Header */
+header {
+    background-color: #375849; /* Dark hunter green */
+    padding: 20px 10px;
+    border-bottom: 2px solid #B57233; /* Rust orange border */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-title {
+    font-size: 1.8rem;
+    color: #F8F1E5; /* Warm cream */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #F8F1E5; /* Warm cream */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #B8A37C; /* Muted gold */
+}
+
+/* Hero Sections */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border: 2px solid #375849; /* Dark hunter green border */
+    background-color: #F8F1E5; /* Warm cream */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-hero {
+    background-color: #B8A37C; /* Muted gold */
+    color: #375849; /* Dark hunter green text */
+    padding: 80px 20px;
+}
+
+.highlights-hero {
+    background-color: #F8F1E5; /* Warm cream */
+    color: #375849; /* Dark hunter green text */
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #F8F1E5; /* Warm cream */
+    background-color: #375849; /* Dark hunter green */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #B8A37C; /* Muted gold hover */
+    color: #375849;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px 10px;
+    background-color: #375849; /* Dark hunter green */
+    color: #F8F1E5; /* Warm cream */
+    font-size: 0.9rem;
+}
+
