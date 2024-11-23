@@ -359,3 +359,11 @@ footer {
     border-radius: 5px;
     font-weight: bold;
 }
+.search-form select {
+    padding: 10px;
+    border: 2px solid #375849; /* Dark hunter green */
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 200px;
+}
+

@@ -67,6 +67,17 @@
                     ?>
                 </select>
 
+                <!-- Sorting Dropdown -->
+                <select name="sort_by">
+                    <option value="">Sort By</option>
+                    <option value="name_asc" <?php echo (isset($_GET['sort_by']) && $_GET['sort_by'] == 'name_asc') ? 'selected' : ''; ?>>Name (A-Z)</option>
+                    <option value="name_desc" <?php echo (isset($_GET['sort_by']) && $_GET['sort_by'] == 'name_desc') ? 'selected' : ''; ?>>Name (Z-A)</option>
+                    <option value="cost_asc" <?php echo (isset($_GET['sort_by']) && $_GET['sort_by'] == 'cost_asc') ? 'selected' : ''; ?>>Cost (Low to High)</option>
+                    <option value="cost_desc" <?php echo (isset($_GET['sort_by']) && $_GET['sort_by'] == 'cost_desc') ? 'selected' : ''; ?>>Cost (High to Low)</option>
+                    <option value="rating_desc" <?php echo (isset($_GET['sort_by']) && $_GET['sort_by'] == 'rating_desc') ? 'selected' : ''; ?>>Rating (High to Low)</option>
+                    <option value="rating_asc" <?php echo (isset($_GET['sort_by']) && $_GET['sort_by'] == 'rating_asc') ? 'selected' : ''; ?>>Rating (Low to High)</option>
+                </select>
+
                 <!-- Submit Button -->
                 <button type="submit" class="cta-button">Filter</button>
             </form>
@@ -121,6 +132,30 @@
             }
             if (!empty($_GET['location'])) {
                 $sql .= " AND location = '$location'";
+            }
+
+            // Add sorting to the query
+            if (!empty($_GET['sort_by'])) {
+                switch ($_GET['sort_by']) {
+                    case 'name_asc':
+                        $sql .= " ORDER BY name ASC";
+                        break;
+                    case 'name_desc':
+                        $sql .= " ORDER BY name DESC";
+                        break;
+                    case 'cost_asc':
+                        $sql .= " ORDER BY cost ASC";
+                        break;
+                    case 'cost_desc':
+                        $sql .= " ORDER BY cost DESC";
+                        break;
+                    case 'rating_desc':
+                        $sql .= " ORDER BY rating DESC";
+                        break;
+                    case 'rating_asc':
+                        $sql .= " ORDER BY rating ASC";
+                        break;
+                }
             }
 
             // Add LIMIT and OFFSET for pagination
