@@ -13,8 +13,7 @@
     <!-- Hero Section: Introduction -->
     <section class="hero intro-hero">
         <div class="hero-left">
-            <!-- Image on the left side -->
-            <img src="mj.jpg" alt="Michael Jordan Golf" class="hero-image">
+            <img src="mj.jpg" alt="Golf Course" class="hero-image">
         </div>
         <div class="hero-right">
             <h2>Welcome to Golf Course Finder</h2>
@@ -23,11 +22,44 @@
         </div>
     </section>
 
-    <!-- Highlights Section -->
-    <section class="hero highlights-hero">
-        <div class="hero-content">
-            <h3>Explore, Play, Repeat</h3>
-            <p>Whether you're a seasoned pro or a beginner, we have something for everyone. Our database features courses for all skill levels with detailed amenities and reviews.</p>
+    <!-- Featured Golf Courses Section -->
+    <section class="featured-courses">
+        <h3>Featured Golf Courses</h3>
+        <div class="course-grid">
+            <div class="course-card">
+                <img src="pipestem.jpg" alt="Pipestem Championship Golf Course">
+                <h4>Pipestem Championship Golf Course</h4>
+                <p>A stunning course with scenic views and challenging holes.</p>
+            </div>
+            <div class="course-card">
+                <img src="greenbrier.jpg" alt="The Old White Golf Course - Greenbrier Resort">
+                <h4>The Old White at the Greenbrier</h4>
+                <p>Perfect for beginners and casual golfers seeking a relaxed game.</p>
+            </div>
+            <div class="course-card">
+                <img src="fincastle.jpg" alt="Fincastle Golf Course">
+                <h4>Fincastle Golf Course</h4>
+                <p>Experience luxury golfing with top-notch facilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h3>What Golfers Are Saying</h3>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"Golf Course Finder helped me discover amazing courses near me. Highly recommend!"</p>
+                <h4>- John D.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"A great tool for beginners and pros alike. I love the easy-to-use interface."</p>
+                <h4>- Sarah L.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Finding and booking my favorite courses has never been easier."</p>
+                <h4>- Mike T.</h4>
+            </div>
         </div>
     </section>
 

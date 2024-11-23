@@ -147,3 +147,95 @@ footer {
     color: #F8F1E5; /* Warm cream */
     font-size: 0.9rem;
 }
+/* Featured Courses Section */
+.featured-courses {
+    padding: 40px 20px;
+    background-color: #F8F1E5; /* Warm cream */
+    text-align: center;
+}
+
+.featured-courses h3 {
+    font-size: 2rem;
+    color: #375849; /* Dark hunter green */
+    margin-bottom: 20px;
+}
+
+/* Grid for Featured Courses */
+.course-grid {
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between items */
+    max-width: 1200px; /* Limit width */
+    margin: 0 auto; /* Center align */
+}
+
+.course-card {
+    background-color: #D9E4DD; /* Soft sage green */
+    border: 2px solid #375849; /* Dark hunter green */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.course-card img {
+    width: 100%; /* Responsive image */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 15px;
+}
+
+.course-card h4 {
+    font-size: 1.5rem;
+    color: #375849; /* Dark hunter green */
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    font-size: 1rem;
+    color: #375849; /* Dark hunter green */
+}
+
+
+/* Testimonials Section */
+.testimonials {
+    padding: 40px 20px;
+    background-color: #B8A37C; /* Muted gold */
+    text-align: center;
+}
+
+.testimonials h3 {
+    font-size: 2rem;
+    color: #375849; /* Dark hunter green */
+    margin-bottom: 20px;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: #F8F1E5; /* Warm cream */
+    border: 2px solid #375849; /* Dark hunter green */
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33.33% - 20px); /* Adjust for 3 cards per row */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    color: #375849;
+    margin-bottom: 10px;
+}
+
+.testimonial-card h4 {
+    font-size: 1.2rem;
+    color: #375849;
+}
