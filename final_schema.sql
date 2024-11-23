@@ -9,7 +9,6 @@ CREATE TABLE golf_courses (
     amenities TEXT,
     cost DECIMAL(10, 2),
     rating DECIMAL(3, 2),
-    image_url TEXT
 );
 
 -- Create the reviews table
