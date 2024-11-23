@@ -271,16 +271,11 @@ footer {
     border: 2px solid #375849; /* Dark hunter green */
     border-radius: 10px;
     padding: 20px;
-    text-align: center;
+    text-align: center; /* Center-align text */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Add spacing between cards */
 }
 
-.course-card img {
-    width: 100%; /* Responsive image */
-    height: auto;
-    border-radius: 10px; /* Rounded corners */
-    margin-bottom: 15px;
-}
 
 .course-card h4 {
     font-size: 1.5rem;
@@ -332,4 +327,35 @@ footer {
 
 .search-form button:hover {
     background-color: #B8A37C; /* Muted gold */
+}
+
+/* Pagination Section */
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #375849; /* Dark hunter green */
+    color: #F8F1E5; /* Warm cream */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #B8A37C; /* Muted gold */
+}
+
+.pagination .current-page {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #B8A37C; /* Muted gold */
+    color: #375849; /* Dark hunter green */
+    border-radius: 5px;
+    font-weight: bold;
 }

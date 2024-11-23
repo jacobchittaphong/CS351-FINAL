@@ -22,103 +22,116 @@
     <section class="courses-listing">
         <h3>Available Golf Courses</h3>
 
+        <!-- Search and Filters Section -->
         <section class="courses-search">
-    <form method="GET" action="courses.php" class="search-form">
-        <!-- Search by Name or Location -->
-        <input type="text" name="search" placeholder="Search by name or location" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+            <form method="GET" action="courses.php" class="search-form">
+                <!-- Search by Name or Location -->
+                <input type="text" name="search" placeholder="Search by name or location" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
 
-        <!-- Filter by Difficulty -->
-        <select name="difficulty">
-            <option value="">All Difficulties</option>
-            <option value="Easy" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Easy') ? 'selected' : ''; ?>>Easy</option>
-            <option value="Intermediate" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Intermediate') ? 'selected' : ''; ?>>Intermediate</option>
-            <option value="Hard" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Hard') ? 'selected' : ''; ?>>Hard</option>
-            <option value="Pro" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Pro') ? 'selected' : ''; ?>>Pro</option>
-        </select>
+                <!-- Filter by Difficulty -->
+                <select name="difficulty">
+                    <option value="">All Difficulties</option>
+                    <option value="Easy" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Easy') ? 'selected' : ''; ?>>Easy</option>
+                    <option value="Intermediate" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Intermediate') ? 'selected' : ''; ?>>Intermediate</option>
+                    <option value="Hard" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Hard') ? 'selected' : ''; ?>>Hard</option>
+                    <option value="Pro" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Pro') ? 'selected' : ''; ?>>Pro</option>
+                </select>
 
-        <!-- Filter by Holes -->
-        <select name="holes">
-            <option value="">All Holes</option>
-            <option value="9" <?php echo (isset($_GET['holes']) && $_GET['holes'] == '9') ? 'selected' : ''; ?>>9 Holes</option>
-            <option value="18" <?php echo (isset($_GET['holes']) && $_GET['holes'] == '18') ? 'selected' : ''; ?>>18 Holes</option>
-        </select>
+                <!-- Filter by Holes -->
+                <select name="holes">
+                    <option value="">All Holes</option>
+                    <option value="9" <?php echo (isset($_GET['holes']) && $_GET['holes'] == '9') ? 'selected' : ''; ?>>9 Holes</option>
+                    <option value="18" <?php echo (isset($_GET['holes']) && $_GET['holes'] == '18') ? 'selected' : ''; ?>>18 Holes</option>
+                </select>
 
-        <!-- Filter by Location -->
-        <select name="location">
-            <option value="">All Locations</option>
-            <?php
-            // Fetch unique locations from the database
-            $conn = new mysqli("localhost", "jcac1", "jacob", "final");
+                <!-- Filter by Location -->
+                <select name="location">
+                    <option value="">All Locations</option>
+                    <?php
+                    // Fetch unique locations from the database
+                    $conn = new mysqli("localhost", "jcac1", "jacob", "final");
 
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
 
-            $location_query = "SELECT DISTINCT location FROM golf_courses";
-            $location_result = $conn->query($location_query);
+                    $location_query = "SELECT DISTINCT location FROM golf_courses";
+                    $location_result = $conn->query($location_query);
 
-            if ($location_result->num_rows > 0) {
-                while ($row = $location_result->fetch_assoc()) {
-                    $selected = (isset($_GET['location']) && $_GET['location'] == $row['location']) ? 'selected' : '';
-                    echo '<option value="' . htmlspecialchars($row['location']) . '" ' . $selected . '>' . htmlspecialchars($row['location']) . '</option>';
-                }
-            }
+                    if ($location_result->num_rows > 0) {
+                        while ($row = $location_result->fetch_assoc()) {
+                            $selected = (isset($_GET['location']) && $_GET['location'] == $row['location']) ? 'selected' : '';
+                            echo '<option value="' . htmlspecialchars($row['location']) . '" ' . $selected . '>' . htmlspecialchars($row['location']) . '</option>';
+                        }
+                    }
+                    ?>
+                </select>
 
-            $conn->close();
-            ?>
-        </select>
-
-        <!-- Submit Button -->
-        <button type="submit" class="cta-button">Filter</button>
-    </form>
-</section>
+                <!-- Submit Button -->
+                <button type="submit" class="cta-button">Filter</button>
+            </form>
+        </section>
 
         <!-- Courses Grid -->
         <div class="course-grid">
             <?php
-            // Establish database connection
-            $conn = new mysqli("localhost", "jcac1", "jacob", "final");
+            // Pagination logic
+            $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+            $results_per_page = 9;
+            $offset = ($page - 1) * $results_per_page;
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+            // Get total number of matching courses for pagination
+            $total_results_sql = "SELECT COUNT(*) AS total FROM golf_courses WHERE 1";
 
-            // Base SQL query
-            $sql = "SELECT * FROM golf_courses WHERE 1";
-
-            // Add search condition
+            // Add filters to count query
             if (!empty($_GET['search'])) {
                 $search = $conn->real_escape_string($_GET['search']);
-                $sql .= " AND (name LIKE '%$search%' OR location LIKE '%$search%')";
+                $total_results_sql .= " AND (name LIKE '%$search%' OR location LIKE '%$search%')";
             }
-
-            // Add difficulty filter
             if (!empty($_GET['difficulty'])) {
                 $difficulty = $conn->real_escape_string($_GET['difficulty']);
-                $sql .= " AND difficulty = '$difficulty'";
+                $total_results_sql .= " AND difficulty = '$difficulty'";
             }
-
-            // Add holes filter
             if (!empty($_GET['holes'])) {
                 $holes = (int)$_GET['holes'];
-                $sql .= " AND holes = $holes";
+                $total_results_sql .= " AND holes = $holes";
             }
-
-            // Add location filter
             if (!empty($_GET['location'])) {
                 $location = $conn->real_escape_string($_GET['location']);
+                $total_results_sql .= " AND location = '$location'";
+            }
+
+            $total_results_result = $conn->query($total_results_sql);
+            $total_results_row = $total_results_result->fetch_assoc();
+            $total_results = $total_results_row['total'];
+            $total_pages = ceil($total_results / $results_per_page);
+
+            // Fetch courses for current page
+            $sql = "SELECT * FROM golf_courses WHERE 1";
+
+            // Add filters to main query
+            if (!empty($_GET['search'])) {
+                $sql .= " AND (name LIKE '%$search%' OR location LIKE '%$search%')";
+            }
+            if (!empty($_GET['difficulty'])) {
+                $sql .= " AND difficulty = '$difficulty'";
+            }
+            if (!empty($_GET['holes'])) {
+                $sql .= " AND holes = $holes";
+            }
+            if (!empty($_GET['location'])) {
                 $sql .= " AND location = '$location'";
             }
 
-            // Execute query
+            // Add LIMIT and OFFSET for pagination
+            $sql .= " LIMIT $results_per_page OFFSET $offset";
+
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                // Loop through the courses and display them
+                // Display courses dynamically
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="course-card">';
-                    echo '<img src="' . htmlspecialchars($row['image_url']) . '" alt="' . htmlspecialchars($row['name']) . '">';
                     echo '<h4>' . htmlspecialchars($row['name']) . '</h4>';
                     echo '<p>' . htmlspecialchars($row['location']) . '</p>';
                     echo '<p>Difficulty: ' . htmlspecialchars($row['difficulty']) . '</p>';
@@ -133,6 +146,25 @@
             $conn->close();
             ?>
         </div>
+
+        <!-- Pagination -->
+        <section class="pagination">
+            <?php
+            if ($page > 1) {
+                echo '<a href="?page=' . ($page - 1) . '" class="cta-button">Previous</a>';
+            }
+            for ($i = 1; $i <= $total_pages; $i++) {
+                if ($i == $page) {
+                    echo '<strong class="current-page">' . $i . '</strong>';
+                } else {
+                    echo '<a href="?page=' . $i . '" class="cta-button">' . $i . '</a>';
+                }
+            }
+            if ($page < $total_pages) {
+                echo '<a href="?page=' . ($page + 1) . '" class="cta-button">Next</a>';
+            }
+            ?>
+        </section>
     </section>
 
     <!-- Include Footer -->
