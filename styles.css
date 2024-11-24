@@ -758,11 +758,28 @@ footer {
     background-color: #B8A37C; /* Muted gold */
 }
 
-.error-message {
-    color: #A13941; /* Deep red for errors */
-    font-weight: bold;
+.success-message {
+    color: #2E7D32; /* Green for success */
+    background-color: #E8F5E9; /* Light green background */
+    border: 1px solid #A5D6A7; /* Soft green border */
+    padding: 10px;
+    border-radius: 5px;
     margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
 }
+
+.error-message {
+    color: #A13941; /* Red for errors */
+    background-color: #FDECEA; /* Light red background */
+    border: 1px solid #E57373; /* Soft red border */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
 
 
 
