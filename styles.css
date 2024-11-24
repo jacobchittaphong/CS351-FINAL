@@ -65,6 +65,7 @@ header {
     display: flex;
     gap: 15px;
     margin-left: 30px;
+    align-items: center;
 }
 
 .auth-button {

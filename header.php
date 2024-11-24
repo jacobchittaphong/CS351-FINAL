@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Start
+}
 ?>
 <header>
     <div class="header-container">
@@ -22,3 +24,4 @@ session_start();
         </nav>
     </div>
 </header>
+
