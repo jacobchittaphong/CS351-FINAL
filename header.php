@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
-    session_start(); // Start
+    session_start();
 }
 ?>
 <header>
@@ -14,7 +14,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </ul>
             <div class="auth-links">
                 <?php if (isset($_SESSION['username'])): ?>
-                    <p class="welcome-message">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+                    <a href="dashboard.php" class="auth-button">Dashboard</a>
                     <a href="logout.php" class="auth-button">Logout</a>
                 <?php else: ?>
                     <a href="login.php" class="auth-button">Login</a>
@@ -24,4 +24,3 @@ if (session_status() === PHP_SESSION_NONE) {
         </nav>
     </div>
 </header>
-

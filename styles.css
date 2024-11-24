@@ -699,6 +699,72 @@ footer {
 }
 
 
+/* Dashboard Styling */
+.dashboard {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #F8F1E5; /* Warm cream */
+    border-radius: 10px;
+    border: 2px solid #375849; /* Dark hunter green */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dashboard h2 {
+    color: #375849; /* Dark hunter green */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.dashboard-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.dashboard-form label {
+    font-size: 1rem;
+    color: #375849;
+    font-weight: bold;
+}
+
+.dashboard-form input,
+.dashboard-form select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #375849;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.dashboard-form input[type="password"] {
+    background-color: #FFF;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #F8F1E5; /* Warm cream */
+    background-color: #375849; /* Dark hunter green */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #B8A37C; /* Muted gold */
+}
+
+.error-message {
+    color: #A13941; /* Deep red for errors */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
 
 
 
