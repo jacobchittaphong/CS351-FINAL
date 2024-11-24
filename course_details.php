@@ -86,17 +86,22 @@ $course = $result->fetch_assoc();
         <h3>Reviews</h3>
         <?php
         // Fetch reviews for the course
-        $review_sql = "SELECT r.review_text, r.rating, r.created_at, u.username 
-                       FROM reviews r 
-                       JOIN users u ON r.user_id = u.id 
-                       WHERE r.course_id = $course_id 
-                       ORDER BY r.created_at DESC";
+        $review_sql = "SELECT r.review_text, r.rating, r.created_at, u.username, u.handicap, u.playing_level
+               FROM reviews r
+               JOIN users u ON r.user_id = u.id
+               WHERE r.course_id = $course_id
+               ORDER BY r.created_at DESC";
         $review_result = $conn->query($review_sql);
 
         if ($review_result->num_rows > 0) {
             while ($review = $review_result->fetch_assoc()) {
                 echo '<div class="review">';
-                echo '<p><strong>' . htmlspecialchars($review['username']) . ':</strong> ' . htmlspecialchars($review['review_text']) . '</p>';
+                echo '<p><strong>' . htmlspecialchars($review['username']) . '</strong>';
+                if (!is_null($review['handicap'])) {
+                    echo ' (Handicap: ' . htmlspecialchars($review['handicap']) . ')';
+                }
+                echo ' - ' . ucfirst(htmlspecialchars($review['playing_level'])) . '</p>';
+                echo '<p>' . htmlspecialchars($review['review_text']) . '</p>';
                 echo '<p>Rating: ' . htmlspecialchars($review['rating']) . '/5</p>';
                 echo '<p><small>Posted on: ' . htmlspecialchars($review['created_at']) . '</small></p>';
                 echo '</div>';
