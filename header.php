@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <header>
     <div class="header-container">
         <h1 class="site-title">Golf Course Finder</h1>
@@ -8,8 +11,13 @@
                 <li><a href="contact.php">Contact</a></li>
             </ul>
             <div class="auth-links">
-                <a href="login.php" class="auth-button">Login</a>
-                <a href="signup.php" class="auth-button">Signup</a>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <p class="welcome-message">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+                    <a href="logout.php" class="auth-button">Logout</a>
+                <?php else: ?>
+                    <a href="login.php" class="auth-button">Login</a>
+                    <a href="signup.php" class="auth-button">Signup</a>
+                <?php endif; ?>
             </div>
         </nav>
     </div>

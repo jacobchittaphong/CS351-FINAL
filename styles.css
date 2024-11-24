@@ -690,6 +690,13 @@ footer {
     border-radius: 5px;
     font-size: 1rem;
 }
+.welcome-message {
+    color: #F8F1E5; /* Warm cream */
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
 
 
 
