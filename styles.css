@@ -779,6 +779,21 @@ footer {
     font-weight: bold;
     text-align: center;
 }
+.delete-button {
+    background-color: #A13941; /* Deep red */
+    color: #F8F1E5; /* Warm cream */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #D9534F; /* Lighter red on hover */
+    color: #FFF;
+}
 
 
 

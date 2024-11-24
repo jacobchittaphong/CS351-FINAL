@@ -83,34 +83,43 @@ $course = $result->fetch_assoc();
 
     <!-- Reviews Section -->
     <section class="course-reviews">
-<h3>Reviews</h3>
-<?php
-// Fetch reviews for the course
-$review_sql = "SELECT r.review_text, r.rating, r.created_at, u.username, u.handicap, u.playing_level
-               FROM reviews r
-               JOIN users u ON r.user_id = u.id
-               WHERE r.course_id = $course_id
-               ORDER BY r.created_at DESC";
-$review_result = $conn->query($review_sql);
+    <h3>Reviews</h3>
+    <?php
+    // Fetch reviews for the course
+    $review_sql = "SELECT r.id AS review_id, r.review_text, r.rating, r.created_at, u.username, u.handicap, u.playing_level, u.id AS user_id
+                   FROM reviews r
+                   JOIN users u ON r.user_id = u.id
+                   WHERE r.course_id = $course_id
+                   ORDER BY r.created_at DESC";
+    $review_result = $conn->query($review_sql);
 
-if ($review_result->num_rows > 0) {
-    while ($review = $review_result->fetch_assoc()) {
-        echo '<div class="review">';
-        echo '<p><strong>' . htmlspecialchars($review['username']) . '</strong>';
-        if (!is_null($review['handicap'])) {
-            echo ' (Handicap: ' . (($review['handicap'] > 0) ? '+' : '') . htmlspecialchars($review['handicap']) . ')';
+    if ($review_result->num_rows > 0) {
+        while ($review = $review_result->fetch_assoc()) {
+            echo '<div class="review">';
+            echo '<p><strong>' . htmlspecialchars($review['username']) . '</strong>';
+            if (!is_null($review['handicap'])) {
+                echo ' (Handicap: ' . (($review['handicap'] > 0) ? '+' : '') . htmlspecialchars($review['handicap']) . ')';
+            }
+            echo ' - ' . ucfirst(htmlspecialchars($review['playing_level'])) . '</p>';
+            echo '<p>' . htmlspecialchars($review['review_text']) . '</p>';
+            echo '<p>Rating: ' . htmlspecialchars($review['rating']) . '/5</p>';
+            echo '<p><small>Posted on: ' . htmlspecialchars($review['created_at']) . '</small></p>';
+            // Show delete button only if the logged-in user is the review author
+            if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $review['user_id']) {
+                echo '<form method="POST" action="delete_review.php" style="display:inline;">
+                        <input type="hidden" name="review_id" value="' . htmlspecialchars($review['review_id']) . '">
+                        <input type="hidden" name="course_id" value="' . htmlspecialchars($course_id) . '">
+                        <button type="submit" class="delete-button">Delete</button>
+                      </form>';
+            }
+            echo '</div>';
         }
-        echo ' - ' . ucfirst(htmlspecialchars($review['playing_level'])) . '</p>';
-        echo '<p>' . htmlspecialchars($review['review_text']) . '</p>';
-        echo '<p>Rating: ' . htmlspecialchars($review['rating']) . '/5</p>';
-        echo '<p><small>Posted on: ' . htmlspecialchars($review['created_at']) . '</small></p>';
-        echo '</div>';
+    } else {
+        echo "<p>No reviews yet. Be the first to review this course!</p>";
     }
-} else {
-    echo "<p>No reviews yet. Be the first to review this course!</p>";
-}
-?>
+    ?>
 </section>
+
 
 
     <!-- Back Button -->
