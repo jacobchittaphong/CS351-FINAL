@@ -54,7 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    header("Location: dashboard.php"); // Refresh the page after update
+    // Set success message and refresh the page
+    $_SESSION['success'] = "Your changes have been saved.";
+    header("Location: dashboard.php");
     exit();
 }
 ?>
@@ -71,6 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include 'header.php'; ?>
 
     <section class="dashboard">
+        <!-- Display success message -->
+        <?php if (isset($_SESSION['success'])): ?>
+            <p class="success-message"><?php echo $_SESSION['success']; ?></p>
+            <?php unset($_SESSION['success']); ?>
+        <?php endif; ?>
+
         <h2>Welcome, <?php echo htmlspecialchars($user['username']); ?>!</h2>
         <p>Update your profile details below:</p>
 
