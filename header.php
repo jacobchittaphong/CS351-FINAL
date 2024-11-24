@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 <header>
     <div class="header-container">
-        <h1 class="site-title">Golf Course Finder</h1>
+        <h1 class="site-title">The Club Compass</h1>
         <nav class="nav-bar">
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>

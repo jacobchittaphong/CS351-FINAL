@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golf Course Finder</title>
+    <title>The Club Compass</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,8 +16,8 @@
             <img src="mj.jpg" alt="Golf Course" class="hero-image">
         </div>
         <div class="hero-right">
-            <h2>Welcome to Golf Course Finder</h2>
-            <p>Welcome to Golf Course Finder! Whether you're a seasoned golfer or just starting, we've got you covered. Discover the best courses near you, plan your next game, and connect with fellow golf enthusiasts. Let us help you find your perfect tee time and elevate your golfing experience!</p>
+            <h2>The Club Compass</h2>
+            <p>Welcome to The Club Compass! Whether you're a seasoned golfer or just starting, we've got you covered. Discover the best courses near you, plan your next game, and connect with fellow golf enthusiasts. Let us help you find your perfect tee time and elevate your golfing experience!</p>
             <a href="courses.php" class="cta-button">Find Courses</a>
         </div>
     </section>
@@ -49,7 +49,7 @@
         <h3>What Golfers Are Saying</h3>
         <div class="testimonial-cards">
             <div class="testimonial-card">
-                <p>"Golf Course Finder helped me discover amazing courses near me. Highly recommend!"</p>
+                <p>"The Club Compass helped me discover amazing courses near me. Highly recommend!"</p>
                 <h4>- John D.</h4>
             </div>
             <div class="testimonial-card">
