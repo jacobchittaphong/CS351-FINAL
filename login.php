@@ -19,8 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
+            // Store user info in session
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
+            $_SESSION['username'] = $user['username']; // Save username to display later
+
+            // Redirect to the homepage or another page
             header("Location: index.php");
             exit();
         } else {
@@ -61,6 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         <p>Don't have an account? <a href="signup.php">Signup here</a>.</p>
     </section>
+
+    <!-- Display Welcome Message -->
+    <?php if (isset($_SESSION['username'])): ?>
+        <section class="welcome-section">
+            <p class="welcome-message">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>! You are logged in.</p>
+        </section>
+    <?php endif; ?>
 
     <!-- Include Footer -->
     <?php include 'footer.php'; ?>
