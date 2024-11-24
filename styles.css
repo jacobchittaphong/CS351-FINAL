@@ -794,6 +794,12 @@ footer {
     background-color: #D9534F; /* Lighter red on hover */
     color: #FFF;
 }
+.site-logo img {
+    height: 65px;
+    width: 65px; /* Specify width if needed */
+    object-fit: contain; /* Ensure proper scaling */
+}
+
 
 
 
