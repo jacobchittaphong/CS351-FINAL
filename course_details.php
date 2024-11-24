@@ -24,6 +24,7 @@ if ($result->num_rows == 0) {
 
 $course = $result->fetch_assoc();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,41 +53,9 @@ $course = $result->fetch_assoc();
     <section class="google-map">
         <h3>Location Map</h3>
         <iframe
-            src="https://www.google.com/maps?q=<?php echo urlencode($course['location']); ?>&output=embed"
-            width="600"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
+            src="https://www.google.com/maps?q=<?php echo urlencode($course['address']); ?>&output=embed"
             loading="lazy">
         </iframe>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="course-reviews">
-        <h3>Reviews</h3>
-        <?php
-        // Fetch reviews for the course
-        $review_sql = "SELECT * FROM reviews WHERE course_id = $course_id ORDER BY created_at DESC";
-        $review_result = $conn->query($review_sql);
-
-        if ($review_result->num_rows > 0) {
-            while ($review = $review_result->fetch_assoc()) {
-                echo '<div class="review">';
-                echo '<p><strong>' . htmlspecialchars($review['user_name']) . ':</strong> ' . htmlspecialchars($review['review_text']) . '</p>';
-                echo '<p>Rating: ' . htmlspecialchars($review['rating']) . '/5</p>';
-                echo '<p><small>Posted on: ' . htmlspecialchars($review['created_at']) . '</small></p>';
-                echo '</div>';
-            }
-        } else {
-            echo "<p>No reviews available for this course.</p>";
-        }
-        ?>
-    </section>
-
-    <!-- Booking Link -->
-    <section class="booking-link">
-        <h3>Ready to Book?</h3>
-        <a href="contact.php?course_id=<?php echo $course_id; ?>" class="cta-button">Contact Us for Booking</a>
     </section>
 
     <!-- Back Button -->
@@ -96,7 +65,5 @@ $course = $result->fetch_assoc();
 
     <!-- Include Footer -->
     <?php include 'footer.php'; ?>
-
-    <?php $conn->close(); ?>
 </body>
 </html>

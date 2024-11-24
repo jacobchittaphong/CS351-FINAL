@@ -139,14 +139,15 @@ header {
     color: #375849;
 }
 
-/* Footer */
 footer {
+    margin-top: 30px; /* Add spacing above the footer */
     text-align: center;
     padding: 15px 10px;
     background-color: #375849; /* Dark hunter green */
     color: #F8F1E5; /* Warm cream */
     font-size: 0.9rem;
 }
+
 /* Featured Courses Section */
 .featured-courses {
     padding: 40px 20px;
@@ -369,11 +370,43 @@ footer {
 
 
 
+/* General Centering and Layout */
+.course-details,
+.google-map,
+.course-reviews,
+.booking-link,
+.back-button {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px; /* Limit the width for centered content */
+}
+
+/* Course Details Section */
+.course-details {
+    padding: 20px;
+    background-color: #F8F1E5; /* Warm cream */
+    border: 2px solid #375849; /* Dark hunter green */
+    border-radius: 10px;
+    margin: 20px auto;
+    text-align: center; /* Center-align text */
+}
+
+.course-details h2 {
+    color: #375849;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.course-details p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #375849;
+}
+
 /* Google Map Section */
 .google-map {
     padding: 20px;
     margin: 20px auto;
-    max-width: 800px;
     text-align: center;
 }
 
@@ -383,10 +416,38 @@ footer {
 }
 
 .google-map iframe {
-    width: 100%;
+    width: 100%; /* Ensure the map scales responsively */
     height: 400px;
+    border-radius: 10px; /* Optional: Rounded corners */
+    border: 3px solid black; /* Black border for the map */
+    margin-bottom: 20px; /* Add spacing below the map */
+}
+
+/* Reviews Section */
+.course-reviews {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #D9E4DD; /* Soft sage green */
     border-radius: 10px;
-    border: 2px solid #B8A37C; /* Muted gold */
+    border: 2px solid #375849; /* Dark hunter green */
+}
+
+.course-reviews h3 {
+    color: #375849;
+    margin-bottom: 15px;
+}
+
+.review {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #F8F1E5; /* Warm cream */
+    border-radius: 5px;
+    border: 1px solid #B8A37C; /* Muted gold */
+}
+
+.review p {
+    margin: 5px 0;
+    color: #375849;
 }
 
 /* Booking Link Section */
@@ -413,5 +474,27 @@ footer {
 .booking-link .cta-button:hover {
     background-color: #B8A37C; /* Muted gold */
 }
+
+/* Back Button Section */
+.back-button {
+    margin: 20px auto 50px; /* Add space between the button and the footer */
+    text-align: center;
+}
+
+.back-button .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #F8F1E5; /* Warm cream */
+    background-color: #375849; /* Dark hunter green */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button .cta-button:hover {
+    background-color: #B8A37C; /* Muted gold */
+}
+
 
 
