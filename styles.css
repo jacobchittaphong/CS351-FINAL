@@ -585,5 +585,68 @@ footer {
     border-radius: 10px;
     border: 1px solid #375849;
 }
+/* Form Section Styling */
+.form-section {
+    padding: 40px 20px;
+    background-color: #F8F1E5; /* Warm cream */
+    border-radius: 10px;
+    border: 2px solid #375849; /* Dark hunter green */
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    font-size: 2rem;
+    color: #375849; /* Dark hunter green */
+    margin-bottom: 20px;
+}
+
+.form-section p {
+    color: #375849;
+    font-size: 1rem;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.form-container label {
+    font-size: 1rem;
+    color: #375849;
+}
+
+.form-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #375849;
+    border-radius: 5px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #F8F1E5; /* Warm cream */
+    background-color: #375849; /* Dark hunter green */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #B8A37C; /* Muted gold */
+}
+
+.error-message {
+    color: #A13941; /* Deep red for errors */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 
 
