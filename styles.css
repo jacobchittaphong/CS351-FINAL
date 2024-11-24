@@ -647,13 +647,14 @@ footer {
     font-weight: bold;
     margin-bottom: 20px;
 }
+
 /* Reviews Section */
 .course-reviews .review {
     padding: 15px;
     margin-bottom: 15px;
     background-color: #D9E4DD; /* Soft sage green */
     border-radius: 10px;
-    border: 1px solid #375849;
+    border: 1px solid #375849; /* Dark hunter green */
 }
 
 .course-reviews .review p {
@@ -661,6 +662,36 @@ footer {
     color: #375849;
     font-size: 1rem;
 }
+
+/* Review Form */
+.add-review {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #F8F1E5; /* Warm cream */
+    border-radius: 10px;
+    border: 2px solid #375849; /* Dark hunter green */
+}
+
+.add-review textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    border: 2px solid #375849;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.add-review select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #375849;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
 
 
 
