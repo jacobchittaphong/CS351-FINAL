@@ -146,6 +146,10 @@ $course = $result->fetch_assoc();
     <!-- Back Button -->
     <section class="back-button">
         <a href="courses.php" class="cta-button">Back to Courses</a>
+
+        <?php if (!empty($course['website_url'])): ?>
+            <a href="<?php echo htmlspecialchars($course['website_url']); ?>" target="_blank" class="cta-button">Visit Website</a>
+        <?php endif; ?>
     </section>
 
     <!-- Include Footer -->
