@@ -799,6 +799,17 @@ footer {
     width: 65px; /* Specify width if needed */
     object-fit: contain; /* Ensure proper scaling */
 }
+.average-rating {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #F8F1E5; /* Warm cream */
+    border: 2px solid #375849; /* Dark hunter green */
+    border-radius: 10px;
+    font-weight: bold;
+    color: #375849; /* Dark hunter green */
+    font-size: 1.2rem;
+}
 
 
 

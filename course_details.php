@@ -81,11 +81,31 @@ $course = $result->fetch_assoc();
     <p style="text-align: center;"><a href="login.php">Login</a> to leave a review.</p>
     <?php endif; ?>
 
-    <!-- Reviews Section -->
     <section class="course-reviews">
     <h3>Reviews</h3>
+
     <?php
-    // Fetch reviews for the course
+    // Fetch average rating for the course
+    $average_rating_sql = "SELECT AVG(rating) AS avg_rating FROM reviews WHERE course_id = ?";
+    $stmt = $conn->prepare($average_rating_sql);
+    $stmt->bind_param("i", $course_id);
+    $stmt->execute();
+    $avg_result = $stmt->get_result();
+    $avg_row = $avg_result->fetch_assoc();
+    $average_rating = $avg_row['avg_rating'] ? number_format($avg_row['avg_rating'], 2) : "No ratings yet";
+
+    // Display average rating
+    echo '<div class="average-rating">';
+    if (is_numeric($average_rating)) {
+        echo "<p>Average Rating: <strong>$average_rating / 5</strong></p>";
+    } else {
+        echo "<p>$average_rating</p>"; // Display "No ratings yet" if no reviews
+    }
+    echo '</div>';
+    ?>
+
+    <?php
+    // Fetch and display reviews
     $review_sql = "SELECT r.id AS review_id, r.review_text, r.rating, r.created_at, u.username, u.handicap, u.playing_level, u.id AS user_id
                    FROM reviews r
                    JOIN users u ON r.user_id = u.id
@@ -119,6 +139,7 @@ $course = $result->fetch_assoc();
     }
     ?>
 </section>
+
 
 
 
