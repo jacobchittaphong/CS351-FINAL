@@ -29,3 +29,8 @@ session_start();
         </p>
     </section>
     
+    <section class="statistics-section">
+        <h3>Golf Industry by the Numbers</h3>
+        <ul>
+            <li>The U.S. has over <strong>16,000 golf courses</strong>, more than any other country.</li>
+            
