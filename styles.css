@@ -838,7 +838,11 @@ footer {
     line-height: 1.6;
     margin-bottom: 15px;
 }
-
+.statistics-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
 
 
