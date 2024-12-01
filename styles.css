@@ -855,6 +855,14 @@ footer {
     background-color: #B8A37C; 
     color: #F8F1E5; 
 }
+.about-image {
+    max-width: 100%; /* Responsive scaling */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #375849; /* Dark hunter green border */
+    margin: 20px 0; /* Spacing around the image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
 
 
 
