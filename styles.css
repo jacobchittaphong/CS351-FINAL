@@ -832,6 +832,12 @@ footer {
     color: #375849; /* Dark hunter green */
     margin-bottom: 15px;
 }
+.about-section p,
+.mission-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
 
 
 
