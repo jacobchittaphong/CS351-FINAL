@@ -851,6 +851,10 @@ footer {
     border-radius: 5px;
     border: 1px solid #375849; 
 }
+.statistics-section ul li:hover {
+    background-color: #B8A37C; 
+    color: #F8F1E5; 
+}
 
 
 
