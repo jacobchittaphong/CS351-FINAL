@@ -33,4 +33,9 @@ session_start();
         <h3>Golf Industry by the Numbers</h3>
         <ul>
             <li>The U.S. has over <strong>16,000 golf courses</strong>, more than any other country.</li>
-            
+            <li>Golf generates an estimated <strong>$84 billion</strong> annually in the U.S. economy.</li>
+            <li>Over <strong>24 million people</strong> play golf each year in the United States.</li>
+            <li>Scotland is home to some of the world's oldest and most iconic golf courses, including St. Andrews.</li>
+        </ul>
+    </section>
+
