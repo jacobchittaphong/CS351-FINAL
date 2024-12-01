@@ -815,7 +815,7 @@ footer {
 .about-section,
 .mission-section,
 .statistics-section {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
     background-color: #F8F1E5; 
