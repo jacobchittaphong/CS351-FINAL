@@ -14,6 +14,7 @@ session_start();
 
     <section class="about-section">
         <h2>About The Club Compass</h2>
+        <img src="family.jpg" alt="Family Golfing" class="about-image">
         <p>
             Welcome to <strong>The Club Compass</strong>, your go-to destination for discovering the best golf courses tailored to your preferences. Whether you're a seasoned golfer or just starting your journey, we aim to simplify your golfing experience by providing detailed course information, reviews, and personalized recommendations.
         </p>
