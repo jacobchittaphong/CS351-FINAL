@@ -825,6 +825,13 @@ footer {
     color: #375849; /* Dark hunter green */
     text-align: center;
 }
+.about-section h2,
+.mission-section h3,
+.statistics-section h3 {
+    font-size: 2rem;
+    color: #375849; /* Dark hunter green */
+    margin-bottom: 15px;
+}
 
 
 
