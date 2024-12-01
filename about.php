@@ -39,3 +39,6 @@ session_start();
         </ul>
     </section>
 
+    <?php include 'footer.php'; ?>
+</body>
+</html>
