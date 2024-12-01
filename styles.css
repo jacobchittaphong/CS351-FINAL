@@ -818,18 +818,18 @@ footer {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #F8F1E5; /* Warm cream */
+    background-color: #F8F1E5; 
     border-radius: 10px;
-    border: 2px solid #375849; /* Dark hunter green */
+    border: 2px solid #375849; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: #375849; /* Dark hunter green */
+    color: #375849; 
     text-align: center;
 }
 .about-section h2,
 .mission-section h3,
 .statistics-section h3 {
     font-size: 2rem;
-    color: #375849; /* Dark hunter green */
+    color: #375849; 
     margin-bottom: 15px;
 }
 .about-section p,
@@ -843,6 +843,17 @@ footer {
     padding: 0;
     margin: 0;
 }
+.statistics-section ul li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #D9E4DD; 
+    border-radius: 5px;
+    border: 1px solid #375849; 
+}
+
+
+
 
 
 
