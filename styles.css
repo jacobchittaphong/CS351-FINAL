@@ -909,7 +909,10 @@ footer {
     border-radius: 5px;
     background-color: #FFFFFF; /* White background */
 }
-
+.contact-form textarea {
+    resize: vertical;
+    height: 150px; /* Default height */
+}
 
 
 
