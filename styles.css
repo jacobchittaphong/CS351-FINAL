@@ -919,6 +919,20 @@ footer {
     border-color: #B8A37C; /* Muted gold focus */
     box-shadow: 0 0 5px rgba(184, 163, 124, 0.8); /* Subtle glow */
 }
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+    }
+}
 
 
 
