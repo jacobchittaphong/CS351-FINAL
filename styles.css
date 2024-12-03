@@ -11,6 +11,10 @@ body {
     line-height: 1.6;
     background-color: #D9E4DD; /* Soft sage green */
     color: #375849; /* Dark hunter green */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
 
 /* Header */
@@ -174,7 +178,7 @@ header {
 }
 
 footer {
-    margin-top: 30px; /* Add spacing above the footer */
+    margin-top: auto; 
     text-align: center;
     padding: 15px 10px;
     background-color: #375849; /* Dark hunter green */
@@ -879,6 +883,7 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     color: #375849; /* Dark hunter green */
+    flex: 1; 
 }
 .contact-section h2 {
     font-size: 2rem;
