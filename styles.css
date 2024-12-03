@@ -898,7 +898,11 @@ footer {
     gap: 15px;
     text-align: left;
 }
-
+.feedback-form label {
+    font-weight: bold;
+    color: #375849;
+    margin-bottom: 5px;
+}
 
 
 
