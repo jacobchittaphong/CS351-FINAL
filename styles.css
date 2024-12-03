@@ -917,6 +917,7 @@ footer {
 .contact-form textarea {
     resize: vertical;
     height: 100px; /* Default height */
+    width: 100px;
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
