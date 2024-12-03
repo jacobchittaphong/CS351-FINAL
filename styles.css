@@ -880,7 +880,11 @@ footer {
     text-align: center;
     color: #375849; /* Dark hunter green */
 }
-
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #375849;
+}
 
 
 
