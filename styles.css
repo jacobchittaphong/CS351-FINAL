@@ -932,6 +932,10 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+.feedback-form .cta-button:hover {
+    background-color: #B8A37C; /* Muted gold */
+    color: #375849; /* Dark hunter green on hover */
+}
 
 
 
