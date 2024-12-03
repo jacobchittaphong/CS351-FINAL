@@ -21,8 +21,11 @@ session_start();
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
 
+            
+
+            
             <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Your Feedback or Questions" required></textarea>
+            <textarea id="message" name="message" placeholder="Your Feedback or Questions"></textarea>
 
             <button type="submit" class="cta-button">Submit</button>
         </form>
