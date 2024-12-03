@@ -911,6 +911,10 @@ footer {
     border-radius: 5px;
     background-color: #FFFFFF; /* White background */
 }
+.feedback-form textarea {
+    resize: vertical;
+    height: 200px; /* Larger height for better usability */
+}
 
 
 
