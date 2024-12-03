@@ -901,6 +901,14 @@ footer {
     color: #375849;
     font-size: 1rem;
 }
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #375849;
+    border-radius: 5px;
+    background-color: #FFFFFF; /* White background */
+}
 
 
 
