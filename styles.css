@@ -921,7 +921,17 @@ footer {
     border-color: #B8A37C; /* Muted gold focus */
     box-shadow: 0 0 5px rgba(184, 163, 124, 0.8); /* Subtle glow */
 }
-
+.feedback-form .cta-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #F8F1E5; /* Warm cream */
+    background-color: #375849; /* Dark hunter green */
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
 
 
