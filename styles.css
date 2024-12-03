@@ -885,7 +885,11 @@ footer {
     margin-bottom: 20px;
     color: #375849;
 }
-
+.contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
 
 
 
