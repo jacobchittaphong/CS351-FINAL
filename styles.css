@@ -890,6 +890,11 @@ footer {
     margin-bottom: 30px;
     line-height: 1.6;
 }
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
 
 
