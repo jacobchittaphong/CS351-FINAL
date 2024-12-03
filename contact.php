@@ -14,4 +14,16 @@ session_start();
         <p>
             We value your feedback and would love to hear from you! If you have any questions, suggestions, or need assistance, please use the form below to reach out to us.
         </p>
+        <form method="POST" action="submit_feedback.php" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Feedback or Questions" required></textarea>
+
+            <button type="submit" class="cta-button">Submit</button>
+        </form>
 </section>
