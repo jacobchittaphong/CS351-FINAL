@@ -8,3 +8,4 @@ session_start();
     <title>Contact Us - The Club Compass</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<?php include 'header.php'; ?>
