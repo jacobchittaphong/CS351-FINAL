@@ -892,6 +892,12 @@ footer {
     line-height: 1.6;
     margin-bottom: 20px;
 }
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
 
 
 
