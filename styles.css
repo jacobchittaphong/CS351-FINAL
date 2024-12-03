@@ -276,9 +276,6 @@ footer {
 }
 
 
-
-
-
 /* Courses Section */
 .courses-listing {
     padding: 40px 20px;
@@ -868,7 +865,7 @@ footer {
     margin: 50px auto;
 }
 .feedback-section {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
     background-color: #F8F1E5; /* Warm cream */
