@@ -27,3 +27,6 @@ session_start();
             <button type="submit" class="cta-button">Submit</button>
         </form>
 </section>
+<?php include 'footer.php'; ?>
+</body>
+</html>
