@@ -868,6 +868,18 @@ footer {
     margin: 50px auto;
 }
 
+/* Contact Page */
+.contact-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #F8F1E5; /* Warm cream */
+    border-radius: 10px;
+    border: 2px solid #375849; /* Dark hunter green */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #375849; /* Dark hunter green */
+}
 
 
 
