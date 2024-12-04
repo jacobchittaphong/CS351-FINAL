@@ -1,9 +1,18 @@
+<?php
+// Database connection
+$conn = new mysqli("localhost", "jcac1", "jacob", "final");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses - Golf Course Finder</title>
+    <title>Courses - The Club Compass</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,8 +37,8 @@
                 <!-- Search by Name or Location -->
                 <input type="text" name="search" placeholder="Search by name or location" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
 
-                <!-- Filter by Difficulty -->
-                <select name="difficulty">
+                 <!-- Filter by Difficulty -->
+                 <select name="difficulty">
                     <option value="">All Difficulties</option>
                     <option value="Easy" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Easy') ? 'selected' : ''; ?>>Easy</option>
                     <option value="Intermediate" <?php echo (isset($_GET['difficulty']) && $_GET['difficulty'] == 'Intermediate') ? 'selected' : ''; ?>>Intermediate</option>
@@ -44,27 +53,60 @@
                     <option value="18" <?php echo (isset($_GET['holes']) && $_GET['holes'] == '18') ? 'selected' : ''; ?>>18 Holes</option>
                 </select>
 
-                <!-- Filter by Location -->
+
+                <!-- Filter by State -->
                 <select name="location">
-                    <option value="">All Locations</option>
-                    <?php
-                    // Fetch unique locations from the database
-                    $conn = new mysqli("localhost", "jcac1", "jacob", "final");
-
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    $location_query = "SELECT DISTINCT location FROM golf_courses";
-                    $location_result = $conn->query($location_query);
-
-                    if ($location_result->num_rows > 0) {
-                        while ($row = $location_result->fetch_assoc()) {
-                            $selected = (isset($_GET['location']) && $_GET['location'] == $row['location']) ? 'selected' : '';
-                            echo '<option value="' . htmlspecialchars($row['location']) . '" ' . $selected . '>' . htmlspecialchars($row['location']) . '</option>';
-                        }
-                    }
-                    ?>
+                    <option value="">All States</option>
+                    <option value="AL" <?php echo (isset($_GET['location']) && $_GET['location'] == 'AL') ? 'selected' : ''; ?>>Alabama (AL)</option>
+                    <option value="AK" <?php echo (isset($_GET['location']) && $_GET['location'] == 'AK') ? 'selected' : ''; ?>>Alaska (AK)</option>
+                    <option value="AZ" <?php echo (isset($_GET['location']) && $_GET['location'] == 'AZ') ? 'selected' : ''; ?>>Arizona (AZ)</option>
+                    <option value="AR" <?php echo (isset($_GET['location']) && $_GET['location'] == 'AR') ? 'selected' : ''; ?>>Arkansas (AR)</option>
+                    <option value="CA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'CA') ? 'selected' : ''; ?>>California (CA)</option>
+                    <option value="CO" <?php echo (isset($_GET['location']) && $_GET['location'] == 'CO') ? 'selected' : ''; ?>>Colorado (CO)</option>
+                    <option value="CT" <?php echo (isset($_GET['location']) && $_GET['location'] == 'CT') ? 'selected' : ''; ?>>Connecticut (CT)</option>
+                    <option value="DE" <?php echo (isset($_GET['location']) && $_GET['location'] == 'DE') ? 'selected' : ''; ?>>Delaware (DE)</option>
+                    <option value="FL" <?php echo (isset($_GET['location']) && $_GET['location'] == 'FL') ? 'selected' : ''; ?>>Florida (FL)</option>
+                    <option value="GA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'GA') ? 'selected' : ''; ?>>Georgia (GA)</option>
+                    <option value="HI" <?php echo (isset($_GET['location']) && $_GET['location'] == 'HI') ? 'selected' : ''; ?>>Hawaii (HI)</option>
+                    <option value="ID" <?php echo (isset($_GET['location']) && $_GET['location'] == 'ID') ? 'selected' : ''; ?>>Idaho (ID)</option>
+                    <option value="IL" <?php echo (isset($_GET['location']) && $_GET['location'] == 'IL') ? 'selected' : ''; ?>>Illinois (IL)</option>
+                    <option value="IN" <?php echo (isset($_GET['location']) && $_GET['location'] == 'IN') ? 'selected' : ''; ?>>Indiana (IN)</option>
+                    <option value="IA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'IA') ? 'selected' : ''; ?>>Iowa (IA)</option>
+                    <option value="KS" <?php echo (isset($_GET['location']) && $_GET['location'] == 'KS') ? 'selected' : ''; ?>>Kansas (KS)</option>
+                    <option value="KY" <?php echo (isset($_GET['location']) && $_GET['location'] == 'KY') ? 'selected' : ''; ?>>Kentucky (KY)</option>
+                    <option value="LA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'LA') ? 'selected' : ''; ?>>Louisiana (LA)</option>
+                    <option value="ME" <?php echo (isset($_GET['location']) && $_GET['location'] == 'ME') ? 'selected' : ''; ?>>Maine (ME)</option>
+                    <option value="MD" <?php echo (isset($_GET['location']) && $_GET['location'] == 'MD') ? 'selected' : ''; ?>>Maryland (MD)</option>
+                    <option value="MA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'MA') ? 'selected' : ''; ?>>Massachusetts (MA)</option>
+                    <option value="MI" <?php echo (isset($_GET['location']) && $_GET['location'] == 'MI') ? 'selected' : ''; ?>>Michigan (MI)</option>
+                    <option value="MN" <?php echo (isset($_GET['location']) && $_GET['location'] == 'MN') ? 'selected' : ''; ?>>Minnesota (MN)</option>
+                    <option value="MS" <?php echo (isset($_GET['location']) && $_GET['location'] == 'MS') ? 'selected' : ''; ?>>Mississippi (MS)</option>
+                    <option value="MO" <?php echo (isset($_GET['location']) && $_GET['location'] == 'MO') ? 'selected' : ''; ?>>Missouri (MO)</option>
+                    <option value="MT" <?php echo (isset($_GET['location']) && $_GET['location'] == 'MT') ? 'selected' : ''; ?>>Montana (MT)</option>
+                    <option value="NE" <?php echo (isset($_GET['location']) && $_GET['location'] == 'NE') ? 'selected' : ''; ?>>Nebraska (NE)</option>
+                    <option value="NV" <?php echo (isset($_GET['location']) && $_GET['location'] == 'NV') ? 'selected' : ''; ?>>Nevada (NV)</option>
+                    <option value="NH" <?php echo (isset($_GET['location']) && $_GET['location'] == 'NH') ? 'selected' : ''; ?>>New Hampshire (NH)</option>
+                    <option value="NJ" <?php echo (isset($_GET['location']) && $_GET['location'] == 'NJ') ? 'selected' : ''; ?>>New Jersey (NJ)</option>
+                    <option value="NM" <?php echo (isset($_GET['location']) && $_GET['location'] == 'NM') ? 'selected' : ''; ?>>New Mexico (NM)</option>
+                    <option value="NY" <?php echo (isset($_GET['location']) && $_GET['location'] == 'NY') ? 'selected' : ''; ?>>New York (NY)</option>
+                    <option value="NC" <?php echo (isset($_GET['location']) && $_GET['location'] == 'NC') ? 'selected' : ''; ?>>North Carolina (NC)</option>
+                    <option value="ND" <?php echo (isset($_GET['location']) && $_GET['location'] == 'ND') ? 'selected' : ''; ?>>North Dakota (ND)</option>
+                    <option value="OH" <?php echo (isset($_GET['location']) && $_GET['location'] == 'OH') ? 'selected' : ''; ?>>Ohio (OH)</option>
+                    <option value="OK" <?php echo (isset($_GET['location']) && $_GET['location'] == 'OK') ? 'selected' : ''; ?>>Oklahoma (OK)</option>
+                    <option value="OR" <?php echo (isset($_GET['location']) && $_GET['location'] == 'OR') ? 'selected' : ''; ?>>Oregon (OR)</option>
+                    <option value="PA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'PA') ? 'selected' : ''; ?>>Pennsylvania (PA)</option>
+                    <option value="RI" <?php echo (isset($_GET['location']) && $_GET['location'] == 'RI') ? 'selected' : ''; ?>>Rhode Island (RI)</option>
+                    <option value="SC" <?php echo (isset($_GET['location']) && $_GET['location'] == 'SC') ? 'selected' : ''; ?>>South Carolina (SC)</option>
+                    <option value="SD" <?php echo (isset($_GET['location']) && $_GET['location'] == 'SD') ? 'selected' : ''; ?>>South Dakota (SD)</option>
+                    <option value="TN" <?php echo (isset($_GET['location']) && $_GET['location'] == 'TN') ? 'selected' : ''; ?>>Tennessee (TN)</option>
+                    <option value="TX" <?php echo (isset($_GET['location']) && $_GET['location'] == 'TX') ? 'selected' : ''; ?>>Texas (TX)</option>
+                    <option value="UT" <?php echo (isset($_GET['location']) && $_GET['location'] == 'UT') ? 'selected' : ''; ?>>Utah (UT)</option>
+                    <option value="VT" <?php echo (isset($_GET['location']) && $_GET['location'] == 'VT') ? 'selected' : ''; ?>>Vermont (VT)</option>
+                    <option value="VA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'VA') ? 'selected' : ''; ?>>Virginia (VA)</option>
+                    <option value="WA" <?php echo (isset($_GET['location']) && $_GET['location'] == 'WA') ? 'selected' : ''; ?>>Washington (WA)</option>
+                    <option value="WV" <?php echo (isset($_GET['location']) && $_GET['location'] == 'WV') ? 'selected' : ''; ?>>West Virginia (WV)</option>
+                    <option value="WI" <?php echo (isset($_GET['location']) && $_GET['location'] == 'WI') ? 'selected' : ''; ?>>Wisconsin (WI)</option>
+                    <option value="WY" <?php echo (isset($_GET['location']) && $_GET['location'] == 'WY') ? 'selected' : ''; ?>>Wyoming (WY)</option>
                 </select>
 
                 <!-- Sorting Dropdown -->
@@ -83,7 +125,7 @@
             </form>
         </section>
 
-        <!-- Courses Grid -->
+         <!-- Courses Grid -->
         <div class="course-grid">
             <?php
             // Pagination logic
@@ -109,7 +151,7 @@
             }
             if (!empty($_GET['location'])) {
                 $location = $conn->real_escape_string($_GET['location']);
-                $total_results_sql .= " AND location = '$location'";
+                $total_results_sql .= " AND SUBSTRING_INDEX(location, ', ', -1) = '$location'";
             }
 
             $total_results_result = $conn->query($total_results_sql);
@@ -131,8 +173,9 @@
                 $sql .= " AND holes = $holes";
             }
             if (!empty($_GET['location'])) {
-                $sql .= " AND location = '$location'";
+                $sql .= " AND SUBSTRING_INDEX(location, ', ', -1) = '$location'";
             }
+
 
             // Add sorting to the query
             if (!empty($_GET['sort_by'])) {
