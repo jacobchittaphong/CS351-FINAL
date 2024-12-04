@@ -53,6 +53,11 @@ if (isset($_GET['feedback'])) {
         <p>
             Your feedback helps us improve and provide the best golfing experience for our community. Please use the form below to share your thoughts or ask questions.
         </p>
+
+        <?php if (!empty($feedback_message)): ?>
+            <p class="feedback-message"><?php echo $feedback_message; ?></p>
+        <?php endif; ?>
+
         <form method="POST" action="submit_feedback.php" class="feedback-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -66,6 +71,7 @@ if (isset($_GET['feedback'])) {
             <button type="submit" class="cta-button">Submit</button>
         </form>
     </section>
+
 
     <?php include 'footer.php'; ?>
 </body>
