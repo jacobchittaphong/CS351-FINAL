@@ -1,5 +1,13 @@
 <?php
 session_start();
+$feedback_message = "";
+if (isset($_GET['feedback'])) {
+    if ($_GET['feedback'] == 'success') {
+        $feedback_message = "Thank you for your feedback!";
+    } elseif ($_GET['feedback'] == 'error') {
+        $feedback_message = "There was an error submitting your feedback. Please try again.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
